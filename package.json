@@ -1,5 +1,5 @@
 {
-  "name": "courier-ssapp",
+  "name": "mah-ssapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ploznlu1/courier-ssapp.git"
+    "url": "git+https://github.com/rite2bala/MAH-ssapp.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ploznlu1/courier-ssapp/issues"
+    "url": "https://github.com/rite2bala/MAH-ssapp.git/issues"
   },
-  "homepage": "https://github.com/ploznlu1/courier-ssapp#readme",
+  "homepage": "https://github.com/rite2bala/MAH-ssapp.git#readme",
   "dependencies": {
     "octopus": "git+http://github.com/privatesky/octopus.git#1.0.4"
   }

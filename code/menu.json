@@ -7,37 +7,28 @@
         "404": "/pages/404.html"
     },
     "pages": [{
-            "name": "login",
-            "tags": "login"
+            "name": "home",
+            "tags": "home"
         },
         {
-            "name": "createdemokits",
-            "tags": "createdemokits"
+            "name": "priceannouncement",
+            "tags": "priceannouncement"
         },
         {
-            "name": "adminlist",
-            "tags": "adminlist"
+            "name": "SHIcontracts",
+            "tags": "SHIcontracts"
         },
         {
-            "name": "editkit",
-            "tags": "editkit"
+            "name": "productdeliverylist",
+            "tags": "productdeliverylist"
         },
         {
-            "name": "courierlist",
-            "tags": "courierlist"
+            "name": "SHItransactions",
+            "tags": "SHItransactions"
         },
         {
-            "name": "kitdetails",
-            "tags": "kitdetails"
-        },
-        {
-            "name": "audit",
-            "tags": "audit"
-        },
-        {
-            "name": "scan",
-            "tags": "scan"
+            "name": "RRtransactions",
+            "tags": "RRtransactions"
         }
-
     ]
 }

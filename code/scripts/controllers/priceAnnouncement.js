@@ -119,7 +119,6 @@ export default class KitDetailsController extends ContainerController {
             DSUManager.createDSU(this.model.productID.value)
         }); // save to DSU
         this.on("fetchDrugData", () => {
-            console.log("Hello There!", this.model.readManufacturerID.value)
             DSUManager.loadDSU(this.model.readManufacturerID.value)
         }); // Fetch from DSU
     }

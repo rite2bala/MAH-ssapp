@@ -8,16 +8,16 @@ const keyssispace = opendsu.loadApi("keyssi");
 
 /* const pskcrypto = require("../../privatesky/modules/pskcrypto"); */
 
-function createDSU() {
+function createDSU(stringsampple) {
 
     //Create a template keySSI (for default domain). See /conf/BDNS.hosts.json
     try {
-        keyssispace.createSeedSSI('default', function(err, aSeedSSI) {
+        keyssispace.createSeedSSI('default', function (err, aSeedSSI) {
 
             console.log("seedSSI object:     ", aSeedSSI);
             console.log("seedSSI identifier: " + aSeedSSI.getIdentifier(true));
 
-            let aData = { "message": "Hello world from MAH SSAPP!" };
+            let aData = stringsampple;
 
             //Create a DSU
             resolver.createDSU(aSeedSSI, (err, dsuInstance) => {
@@ -36,8 +36,6 @@ function createDSU() {
                         throw err;
                     }
                     console.log("Data written succesfully! :) ");
-
-
                     dsuInstance.getKeySSIAsString((err, aKeySSIStr) => {
                         console.log("%cKeySSI identifier: ", "color: green", aKeySSIStr); // KeySSI identifier:  BBudGH6ySHG6GUHN8ogNrTWbSXyuv5XvYDpjVH3L973ioh5WqYv39pk5DJMhgCA2WTtoyCP54cZazSg8ozXawX9ZZ
 
@@ -61,10 +59,34 @@ function createDSU() {
         console.log("Exception: ");
         console.log(exc);
     }
+}
 
-
+function loadDSU(aKeySSIStr) {
+    console.log(aKeySSIStr);
+    resolver.loadDSU(aKeySSIStr, (err, anotherDSUInstance) => {
+        if (err) {
+            console.log("Error loading DSU.");
+            throw err;
+        }
+        console.log("This is another DSU Instance", anotherDSUInstance)
+        anotherDSUInstance.readFile('/data', (err, data) => {
+            //Reached when data loaded
+            if (err) {
+                console.log("Error reading data from the DSU.");
+                throw err;
+            }
+          
+            const dataObject = JSON.parse(data.toString()); //Convert data (buffer) to string and then to JSON
+            console.log(dataObject);
+            console.log("%cData load succesfully IN MAH SSAPP!", "color: green", dataObject.message); //Print message to console
+            // console.log("DSU Keys: ");
+            // console.log("  KeySSI:   " + pskcrypto.pskBase58Decode(aKeySSIStr));
+            // console.log("  Read Key: " + aReadSSI.getIdentifier(true));
+        });
+    });
 }
 
 export default {
-    createDSU
+    createDSU,
+    loadDSU
 }

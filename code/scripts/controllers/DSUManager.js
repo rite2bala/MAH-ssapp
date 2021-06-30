@@ -7,6 +7,7 @@ const resolver = opendsu.loadApi("resolver");
 const keyssispace = opendsu.loadApi("keyssi");
 
 /* const pskcrypto = require("../../privatesky/modules/pskcrypto"); */
+let keySSI = "";
 
 function createDSU(stringsampple) {
 
@@ -61,28 +62,98 @@ function createDSU(stringsampple) {
     }
 }
 
-function loadDSU(aKeySSIStr) {
-    resolver.loadDSU(aKeySSIStr, (err, anotherDSUInstance) => {
+function initializeDSU() {
+    try {
+        keyssispace.createSeedSSI('default', function(err, aSeedSSI) {
+            //Create a DSU
+            resolver.createDSU(aSeedSSI, (err, dsuInstance) => {
+                //Reached when DSU created
+                if (err) {
+                    console.log("Error creating DSU.");
+                    throw err;
+                }
+                //Methods found in: /modules/bar/lib/Archive.js
+                dsuInstance.getKeySSIAsString((err, aKeySSIStr) => {
+                    console.log("%cKeySSI identifier: ", "color: green", aKeySSIStr);
+                    keySSI = aKeySSIStr;
+                });
+            });
+        });
+    } catch (exc) {
+
+        console.log("Exception: ");
+        console.log(exc);
+    }
+}
+
+function loadDSU() {
+    resolver.loadDSU(keySSI, (err, anotherDSUInstance) => {
         if (err) {
             console.log("Error loading DSU.");
             throw err;
         }
-        anotherDSUInstance.readFile('/data', (err, data) => {
-            //Reached when data loaded
-            if (err) {
-                console.log("Error reading data from the DSU.");
-                throw err;
-            }
-            const dataObject = JSON.parse(data.toString()); //Convert data (buffer) to string and then to JSON
-            console.log("%cData load succesfully IN MAH SSAPP!", "color: green", dataObject); //Print message to console
-            // console.log("DSU Keys: ");
-            // console.log("  KeySSI:   " + pskcrypto.pskBase58Decode(aKeySSIStr));
-            // console.log("  Read Key: " + aReadSSI.getIdentifier(true));
-        });
+
     });
 }
 
+function testCreate(stringSample) {
+
+    resolver.loadDSU(keySSI, (err, DSUInstance) => {
+        if (err) {
+            console.log("Error loading DSU.");
+            throw err;
+        }
+        DSUInstance.listFiles("/", (err, files) => {
+            if (err) {
+                throw err;
+            } else {
+                DSUInstance.writeFile("/file" + (files.length - 1), JSON.stringify(stringSample), (err) => {
+                    if (err) {
+                        throw err;
+                    } else {
+
+                    }
+                });
+            }
+        });
+    });
+
+}
+
+function testRead() {
+    resolver.loadDSU(keySSI, (err, DSUInstance) => {
+        if (err) {
+            console.log("Error loading DSU.");
+            throw err;
+        }
+        DSUInstance.listFiles("/", (err, files) => {
+            if (err) {
+                throw err;
+            } else {
+                files.forEach((data) => {
+                    // log file and user file not included
+                    if (data != "dsu-metadata-log") {
+                        // reads kit files
+                        DSUInstance.readFile("/" + data, (err, buffer) => {
+                            if (err) {
+                                throw err;
+                            } else {
+                                let dataObject = JSON.parse(buffer.toString());
+                                console.log(dataObject);
+
+                            }
+
+                        });
+                    }
+                });
+            }
+        });
+    });
+}
 export default {
     createDSU,
-    loadDSU
+    loadDSU,
+    initializeDSU,
+    testCreate,
+    testRead
 }

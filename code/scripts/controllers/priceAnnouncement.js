@@ -114,12 +114,13 @@ export default class KitDetailsController extends ContainerController {
     constructor(element, history) {
         super(element, history);
         this.model = this.setModel(JSON.parse(JSON.stringify(model))); // sets model
+        DSUManager.initializeDSU();
         this.on("saveDrugData", () => {
             console.log("Hello There!", this.model.productID.value)
-            DSUManager.createDSU(this.model.productID.value)
+            DSUManager.testCreate(this.model.productID.value)
         }); // save to DSU
         this.on("fetchDrugData", () => {
-            DSUManager.loadDSU(this.model.readManufacturerID.value)
+            DSUManager.testRead();
         }); // Fetch from DSU
     }
 }

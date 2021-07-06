@@ -1,28 +1,92 @@
 <psk-page>
     <psk-layout row-gap="0.2em">
         <psk-layout-item align="center" style="margin-top:20px">
-            <h5 class="courier-header">Kit Details</h5>
+            <h5 class="mah-header">Kit Details</h5>
         </psk-layout-item>
 
         <psk-card class="">
             <psk-form controller-name="priceAnnouncement">
-                <!-- 
-                    <psk-modal class="mobile-modal" opened="@modal.opened">
-                        <psk-label slot="title" label="@modal.title"></psk-label>
-                        <psk-label label="@modal.message"></psk-label>
-                        <psk-button slot="footer" event-name="closeModal" label="Close"></psk-button>
-                    </psk-modal> -->
-
+                <!-- Product ID -->
                 <psk-form-row style="margin-top:10px">
                     <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="courier-input" view-model="productID"></psk-text-input>
+                        <psk-text-input class="mah-input" view-model="productID"></psk-text-input>
+                    </psk-grid>
+                </psk-form-row>
+                
+                <!-- Manufacturer ID -->
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-text-input class="mah-input" view-model="manufacturerID" read-only="true">
+                        </psk-text-input>
+                    </psk-grid>
+                </psk-form-row>
+                
+                <!--  //Product Group (IQVIA Molecule) -->
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-text-input class="mah-input" view-model="productGroup"></psk-text-input>
                     </psk-grid>
                 </psk-form-row>
 
+                <!-- materialID -->
                 <psk-form-row style="margin-top:10px">
                     <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="courier-input" view-model="manufacturerName" read-only="true">
-                        </psk-text-input>
+                        <psk-text-input class="mah-input" view-model="materialID"></psk-text-input>
+                    </psk-grid>
+                </psk-form-row>
+
+                <!-- productName  -->
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-text-input class="mah-input" view-model="productName"></psk-text-input>
+                    </psk-grid>
+                </psk-form-row>
+
+                <!-- strength  PSK Select--> 
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-select class="mah-input" view-model="strength"></psk-select>
+                    </psk-grid>
+                </psk-form-row>
+
+                <!-- packSize  -->
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-select class="mah-input" view-model="packSize"></psk-select>
+                    </psk-grid>
+                </psk-form-row>
+
+                <!-- dosageForm  -->
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-select class="mah-input" view-model="dosageForm"></psk-select>
+                    </psk-grid>
+                </psk-form-row>
+
+                <!-- priceAPU  -->
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-text-input class="mah-input" view-model="priceAPU"></psk-text-input>
+                    </psk-grid>
+                </psk-form-row>
+
+                <!-- currency  -->
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-select class="mah-input" view-model="currency"></psk-select>
+                    </psk-grid>
+                </psk-form-row>
+                <!-- priceDate  -->
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-text-input class="mah-input" view-model="priceDate"></psk-text-input>
+                    </psk-grid>
+                </psk-form-row>
+
+                <!-- priceDate  -->
+                <psk-form-row style="margin-top:10px">
+                    <psk-grid columns="1" layout="l=[4,4,4]">
+                        <psk-text-input class="mah-input" view-model="priceDate"></psk-text-input>
                     </psk-grid>
                 </psk-form-row>
 
@@ -37,7 +101,7 @@
 
                 <psk-form-row style="margin-top:10px">
                     <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="courier-input" view-model="readManufacturerID">
+                        <psk-text-input class="mah-input" view-model="readManufacturerID">
                         </psk-text-input>
                     </psk-grid>
                 </psk-form-row>
@@ -59,25 +123,25 @@
 
 </psk-page>
 <style>
-    .courier-header {
+    .mah-header {
         font-size: 18px;
         color: #0AA524;
         font-weight: bold;
     }
 
-    .courier-input input,
-    .courier-input textarea,
-    .courier-input select {
+    .mah-input input,
+    .mah-input textarea,
+    .mah-input select {
         border: 1.5px solid #0AA524;
         border-radius: 9px;
         min-height: 40px;
     }
 
-    .courier-input label {
+    .mah-input label {
         color: #0AA524;
     }
 
-    .courier-button {
+    .mah-button {
         background-color: #0AA524 !important;
         border-color: #0AA524 !important;
     }

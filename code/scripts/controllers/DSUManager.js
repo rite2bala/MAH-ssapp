@@ -15,8 +15,8 @@ function createDSU(stringsampple) {
     try {
         keyssispace.createSeedSSI('default', function(err, aSeedSSI) {
 
-            /* console.log("seedSSI object:     ", aSeedSSI);
-            console.log("seedSSI identifier: " + aSeedSSI.getIdentifier(true)); */
+            console.log("seedSSI object:     ", aSeedSSI);
+            console.log("seedSSI identifier: " + aSeedSSI.getIdentifier(true));
 
             let aData = stringsampple;
 
@@ -40,17 +40,16 @@ function createDSU(stringsampple) {
                     dsuInstance.getKeySSIAsString((err, aKeySSIStr) => {
                         console.log("%cKeySSI identifier: ", "color: green", aKeySSIStr);
 
-                        /* const anotherSeedSSI = keyssispace.parse(aKeySSIStr);
+                        const anotherSeedSSI = keyssispace.parse(aKeySSIStr);
                         console.log("secretSSIObject = ", anotherSeedSSI); // dsuSecretSSI
+                        
                         const aReadSSI = anotherSeedSSI.derive();
                         console.log("sReadSSI object = ", aReadSSI);
                         console.log("sReadSSI identifier = " + aReadSSI.getIdentifier(true));
 
                         const aZaSSI = aReadSSI.derive();
                         console.log("sZaSSI object = ", aZaSSI);
-                        console.log("sZaSSI identifier = " + aZaSSI.getIdentifier(true)); */
-
-
+                        console.log("sZaSSI identifier = " + aZaSSI.getIdentifier(true));
                     });
                 });
             });
@@ -87,13 +86,21 @@ function initializeDSU() {
 }
 
 function loadDSU() {
-    resolver.loadDSU(keySSI, (err, anotherDSUInstance) => {
-        if (err) {
-            console.log("Error loading DSU.");
-            throw err;
-        }
-
-    });
+    try {
+        resolver.loadDSU(keySSI, (err, dsuInstance) => {
+            if (err) {
+                console.error(err);
+                setModal("Error", "DSU has NOT been loaded, check console");
+            }
+            dsu = dsuInstance;
+            console.log("DSU loaded", dsu);
+         //   setModal("", "");
+        })
+    } catch (err) {
+        console.log("broadcasting an error from here")
+        console.error(err);
+        //setModal("Error", "DSU has NOT been loaded, check console");
+    }
 }
 
 function testCreate(stringSample) {

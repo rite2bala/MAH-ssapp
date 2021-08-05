@@ -51,26 +51,27 @@ const model = {
         label: "Strength",
         name: "Strength",
         required: true,
-        options: [ {
-            label: "1mg",
-            value: "1mg"
-        }, {
-            label: "5mg",
-            value: "5mg"
-        }, 
-        {
-            label: "30mg",
-            value: "30mg"
-        }, {
-            label: "500mg",
-            value: "500mg"
-        }, {
-            label: "1000mg",
-            value: "1000mg"
-        }, {
-            label: "NA",
-            value: "NA"
-        }]
+        options: [{
+                label: "1mg",
+                value: "1mg"
+            }, {
+                label: "5mg",
+                value: "5mg"
+            },
+            {
+                label: "30mg",
+                value: "30mg"
+            }, {
+                label: "500mg",
+                value: "500mg"
+            }, {
+                label: "1000mg",
+                value: "1000mg"
+            }, {
+                label: "NA",
+                value: "NA"
+            }
+        ]
     },
 
     //Pack size
@@ -78,26 +79,27 @@ const model = {
         label: "Pack Size",
         name: "Pack Size",
         required: true,
-        options: [ {
-            label: "10",
-            value: "10"
-        }, {
-            label: "15",
-            value: "15"
-        }, 
-        {
-            label: "60ml",
-            value: "60ml"
-        }, {
-            label: "100ml",
-            value: "100ml"
-        }, {
-            label: "200ml",
-            value: "200ml"
-        }, {
-            label: "NA",
-            value: "NA"
-        }]
+        options: [{
+                label: "10",
+                value: "10"
+            }, {
+                label: "15",
+                value: "15"
+            },
+            {
+                label: "60ml",
+                value: "60ml"
+            }, {
+                label: "100ml",
+                value: "100ml"
+            }, {
+                label: "200ml",
+                value: "200ml"
+            }, {
+                label: "NA",
+                value: "NA"
+            }
+        ]
     },
 
     //Dosage Form

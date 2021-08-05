@@ -42,7 +42,7 @@ function createDSU(stringsampple) {
 
                         const anotherSeedSSI = keyssispace.parse(aKeySSIStr);
                         console.log("secretSSIObject = ", anotherSeedSSI); // dsuSecretSSI
-                        
+
                         const aReadSSI = anotherSeedSSI.derive();
                         console.log("sReadSSI object = ", aReadSSI);
                         console.log("sReadSSI identifier = " + aReadSSI.getIdentifier(true));
@@ -50,6 +50,7 @@ function createDSU(stringsampple) {
                         const aZaSSI = aReadSSI.derive();
                         console.log("sZaSSI object = ", aZaSSI);
                         console.log("sZaSSI identifier = " + aZaSSI.getIdentifier(true));
+                        keySSI = aKeySSIStr;
                     });
                 });
             });
@@ -94,7 +95,7 @@ function loadDSU() {
             }
             dsu = dsuInstance;
             console.log("DSU loaded", dsu);
-         //   setModal("", "");
+            //   setModal("", "");
         })
     } catch (err) {
         console.log("broadcasting an error from here")
@@ -104,7 +105,6 @@ function loadDSU() {
 }
 
 function testCreate(stringSample) {
-
     resolver.loadDSU(keySSI, (err, DSUInstance) => {
         if (err) {
             console.log("Error loading DSU.");
@@ -128,6 +128,7 @@ function testCreate(stringSample) {
 }
 
 function testRead() {
+    /* initializeDSU(); */
     resolver.loadDSU(keySSI, (err, DSUInstance) => {
         if (err) {
             console.log("Error loading DSU.");

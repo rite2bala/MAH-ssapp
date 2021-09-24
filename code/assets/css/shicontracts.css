@@ -1,0 +1,51 @@
+.cards {
+    margin-bottom: 50px;
+}
+.mah-header {
+    margin-top: 100px;
+    font-size: 35px;
+    color: #04aa6d;
+    font-weight: bold;
+}
+
+.mah-input input,
+.mah-input textarea,
+.mah-input select {
+    border-radius: 12px;
+    min-height: 40px;
+    color: #04aa6d;
+}
+
+button {
+    border-color: #04aa6d !important;
+    background-color: #04aa6d !important;
+    color: white;
+    border-radius: 12px !important;
+}
+
+.navbar-user {
+    background-color: white;
+    height: 65px;
+    width: 215px;
+    margin-top: -65px;
+    margin-left: 200px;
+}
+
+.headerimg {
+    background-color: white;
+    height: 65px;
+    width: 200px;
+}
+
+.header {
+    box-shadow: 0px 5px 5px #888888;
+    width: 415px;
+    height: 65px;
+    background-color: white;
+}
+
+.navbar-img img {
+    margin-left: -65px;
+    margin-right: auto;
+    height: 57px;
+}

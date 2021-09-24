@@ -1,149 +1,143 @@
-<psk-page>
-    <psk-layout row-gap="0.2em">
-        <psk-layout-item align="center" style="margin-top:20px">
-            <h5 class="mah-header">Kit Details</h5>
+<psk-page id="root">
+    <psk-layout row-gap="1em">
+        <psk-layout-item align="center">
+            <h1 class="mah-header">Price Announcement</h1>
         </psk-layout-item>
 
-        <psk-card class="">
-            <psk-form controller-name="priceAnnouncement">
-                <!-- Product ID -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="mah-input" view-model="productID"></psk-text-input>
-                    </psk-grid>
-                </psk-form-row>
-                
-                <!-- Manufacturer ID -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="mah-input" view-model="manufacturerID" read-only="true">
+        <psk-card class="cards" style="margin-top: 50px">
+            <psk-form
+                controller-name="priceAnnouncement"
+                form-actions="Save"
+                required
+            >
+                <psk-form-row>
+                    <psk-grid columns="3" layout="l=[4,4,4]">
+                        <!-- Product ID -->
+                        <psk-text-input
+                            class="mah-input"
+                            view-model="productID"
+                        ></psk-text-input>
+
+                        <!-- Manufacturer ID -->
+                        <psk-text-input
+                            class="mah-input"
+                            view-model="manufacturerID"
+                            read-only="true"
+                        >
                         </psk-text-input>
+
+                        <!--  Product Group (IQVIA Molecule) -->
+                        <psk-text-input
+                            class="mah-input"
+                            view-model="productGroup"
+                        ></psk-text-input>
+
+                        <!-- materialID -->
+                        <psk-text-input
+                            class="mah-input"
+                            view-model="materialID"
+                        ></psk-text-input>
+
+                        <!-- productName  -->
+                        <psk-text-input
+                            class="mah-input"
+                            view-model="productName"
+                        ></psk-text-input>
+
+                        <!-- strength  PSK Select-->
+                        <psk-select
+                            class="mah-input"
+                            view-model="strength"
+                        ></psk-select>
+
+                        <!-- packSize  -->
+                        <psk-select
+                            class="mah-input"
+                            view-model="packSize"
+                        ></psk-select>
+
+                        <!-- dosageForm  -->
+                        <psk-select
+                            class="mah-input"
+                            view-model="dosageForm"
+                        ></psk-select>
+
+                        <!-- priceAPU  -->
+                        <psk-text-input
+                            class="mah-input"
+                            view-model="priceAPU"
+                        ></psk-text-input>
+
+                        <!-- currency  -->
+                        <psk-select
+                            class="mah-input"
+                            view-model="currency"
+                        ></psk-select>
+
+                        <!-- priceDate  -->
+                        <psk-date-input
+                            class="mah-input"
+                            view-model="priceDate"
+                        ></psk-date-input>
                     </psk-grid>
                 </psk-form-row>
-                
-                <!--  //Product Group (IQVIA Molecule) -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="mah-input" view-model="productGroup"></psk-text-input>
-                    </psk-grid>
-                </psk-form-row>
+            </psk-form>
 
-                <!-- materialID -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="mah-input" view-model="materialID"></psk-text-input>
-                    </psk-grid>
-                </psk-form-row>
-
-                <!-- productName  -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="mah-input" view-model="productName"></psk-text-input>
-                    </psk-grid>
-                </psk-form-row>
-
-                <!-- strength  PSK Select--> 
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-select class="mah-input" view-model="strength"></psk-select>
-                    </psk-grid>
-                </psk-form-row>
-
-                <!-- packSize  -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-select class="mah-input" view-model="packSize"></psk-select>
-                    </psk-grid>
-                </psk-form-row>
-
-                <!-- dosageForm  -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-select class="mah-input" view-model="dosageForm"></psk-select>
-                    </psk-grid>
-                </psk-form-row>
-
-                <!-- priceAPU  -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="mah-input" view-model="priceAPU"></psk-text-input>
-                    </psk-grid>
-                </psk-form-row>
-
-                <!-- currency  -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-select class="mah-input" view-model="currency"></psk-select>
-                    </psk-grid>
-                </psk-form-row>
-                <!-- priceDate  -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="mah-input" view-model="priceDate"></psk-text-input>
-                    </psk-grid>
-                </psk-form-row>
-
-                <!-- priceDate  -->
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="mah-input" view-model="priceDate"></psk-text-input>
-                    </psk-grid>
-                </psk-form-row>
-
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-button label="Save drug data" event-name="saveDrugData">
-                            <psk-icon icon="save" color="rgb(255, 255, 255)"></psk-icon>
-                        </psk-button>
-                    </psk-grid>
-                </psk-form-row>
-
-
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-text-input class="mah-input" view-model="readManufacturerID">
-                        </psk-text-input>
-                    </psk-grid>
-                </psk-form-row>
-
-                <psk-form-row style="margin-top:10px">
-                    <psk-grid columns="1" layout="l=[4,4,4]">
-                        <psk-button label="fetch drug data" event-name="fetchDrugData">
-                            <psk-icon icon="save" color="rgb(255, 255, 255)"></psk-icon>
-                        </psk-button>
-                    </psk-grid>
-                </psk-form-row>
-
-
+            <psk-form
+                controller-name="priceAnnouncement"
+                form-actions="Fetch data"
+                required
+            >
+                <psk-grid columns="3" layout="l=[4,4,4]">
+                    <psk-text-input
+                        style="margin-top: 25px"
+                        class="mah-input-key"
+                        view-model="readManufacturerID"
+                    >
+                    </psk-text-input>
+                </psk-grid>
             </psk-form>
         </psk-card>
     </psk-layout>
-
-
-
 </psk-page>
+
 <style>
+    .root {
+        max-width: 300px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+    .cards {
+        margin-bottom: 50px;
+    }
     .mah-header {
-        font-size: 18px;
-        color: #0AA524;
+        margin-top: 100px;
+        font-size: 35px;
+        color: #04aa6d;
         font-weight: bold;
     }
 
     .mah-input input,
     .mah-input textarea,
     .mah-input select {
-        border: 1.5px solid #0AA524;
-        border-radius: 9px;
+        border-radius: 12px;
         min-height: 40px;
+        color: #04aa6d;
     }
 
-    .mah-input label {
-        color: #0AA524;
+    .mah-input-key input,
+    .mah-input-key textarea,
+    .mah-input-key select {
+        border-radius: 12px;
+        min-height: 40px;
+        color: #04aa6d;
     }
 
-    .mah-button {
-        background-color: #0AA524 !important;
-        border-color: #0AA524 !important;
+    button {
+        border-color: #04aa6d !important;
+        background-color: #04aa6d !important;
+        color: white;
+        border-radius: 12px !important;
     }
 
     .navbar-user {

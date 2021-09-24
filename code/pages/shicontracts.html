@@ -1,0 +1,162 @@
+<psk-container id="root">
+    <psk-page title="Initiate new SHI contract">
+        <psk-layout row-gap="1em">
+            <psk-layout-item align="center">
+                <h1 class="mah-header">Initiate new SHI contract</h1>
+            </psk-layout-item>
+
+            <psk-card class="cards" style="margin-top: 50px">
+                <psk-form
+                    controller-name="shicontracts"
+                    form-actions="Save"
+                    required
+                >
+                    <psk-form-row>
+                        <psk-grid columns="3" layout="l=[4,4,4]">
+                            <!-- Manufacturer ID -->
+                            <psk-text-input
+                                class="mah-input"
+                                view-model="manufacturerID"
+                                read-only="true"
+                            >
+                            </psk-text-input>
+
+                            <!-- statusId -->
+                            <psk-text-input
+                                class="mah-input"
+                                view-model="statusId"
+                            ></psk-text-input>
+
+                            <!--  SHIID -->
+                            <psk-text-input
+                                class="mah-input"
+                                view-model="shiId"
+                            ></psk-text-input>
+
+                            <!-- Start Date -->
+                            <psk-date-input
+                                class="mah-input"
+                                view-model="startDate"
+                            ></psk-date-input>
+
+                            <!-- End Date  -->
+                            <psk-date-input
+                                class="mah-input"
+                                view-model="endDate"
+                            ></psk-date-input>
+
+                            <!-- Product ID  -->
+                            <psk-text-input
+                                class="mah-input"
+                                view-model="productID"
+                            ></psk-text-input>
+
+                            <!-- Products -->
+                            <psk-text-input
+                                class="mah-input"
+                                view-model="products"
+                            ></psk-text-input>
+
+                            <!-- Rebate Logic -->
+                            <psk-text-input
+                                class="mah-input"
+                                view-model="rebateLogic"
+                            ></psk-text-input>
+
+                            <!-- Payment Conditions -->
+                            <psk-text-input
+                                class="mah-input"
+                                view-model="paymentConditions"
+                            ></psk-text-input>
+
+                            <!-- Discount -->
+                            <psk-text-input
+                                class="mah-input"
+                                view-model="discount"
+                            ></psk-text-input>
+
+                            <!-- Rebate Start  -->
+                            <psk-date-input
+                                class="mah-input"
+                                view-model="rebateStart"
+                            ></psk-date-input>
+
+                            <!-- Rebate End +1Y  -->
+                            <psk-date-input
+                                class="mah-input"
+                                view-model="rebateEnd"
+                            ></psk-date-input>
+                        </psk-grid>
+                    </psk-form-row>
+                </psk-form>
+            </psk-card>
+        </psk-layout>
+    </psk-page>
+</psk-container>
+
+<style>
+    .root {
+        max-width: 300px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+    .cards {
+        margin-bottom: 50px;
+    }
+    .mah-header {
+        margin-top: 100px;
+        font-size: 35px;
+        color: #04aa6d;
+        font-weight: bold;
+    }
+
+    .mah-input input,
+    .mah-input textarea,
+    .mah-input select {
+        border-radius: 12px;
+        min-height: 40px;
+        color: #04aa6d;
+    }
+
+    .mah-input-key input,
+    .mah-input-key textarea,
+    .mah-input-key select {
+        border-radius: 12px;
+        min-height: 40px;
+        color: #04aa6d;
+    }
+
+    button {
+        border-color: #04aa6d !important;
+        background-color: #04aa6d !important;
+        color: white;
+        border-radius: 12px !important;
+    }
+
+    .navbar-user {
+        background-color: white;
+        height: 65px;
+        width: 215px;
+        margin-top: -65px;
+        margin-left: 200px;
+    }
+
+    .headerimg {
+        background-color: white;
+        height: 65px;
+        width: 200px;
+    }
+
+    .header {
+        box-shadow: 0px 5px 5px #888888;
+        width: 415px;
+        height: 65px;
+        background-color: white;
+    }
+
+    .navbar-img img {
+        margin-left: -65px;
+        margin-right: auto;
+        height: 57px;
+    }
+</style>

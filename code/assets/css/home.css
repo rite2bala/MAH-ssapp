@@ -29,6 +29,7 @@
 }
 
 .menu psk-link span {
+    text-decoration: none;
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
